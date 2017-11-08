@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Album</title>
+</head>
+<body>
+    {% if name %}
+		<h3>Hello!&nbsp;{{name}}</h3>
+	{% endif %}
+
+
+	{% if message %}
+		<h3>{{message}}</h3>
+	{% endif %}
+
+    {% if albums %}
+		<h2>Browse an album</h2>
+		<ul>
+			{% for album in albums %}
+
+				<h3><a href="{{url_for('album')}}?AID={{album[0]}}">{{album[1]}}</a></h3>
+                <a href="{{url_for('delete')}}?aid={{album[0]}}">Delete album {{album[1]}}</a>
+				<br>
+			{% endfor %}
+		</ul>
+    {% endif %}
+
+    <a href="{{ url_for('protected') }}">Back to Profile</a>
+
+</body>
+</html>

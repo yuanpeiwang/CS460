@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Search</title>
+</head>
+<body>
+    {% if message %}
+        <h2>{{message}}</h2>
+    {% endif %}
+
+    {%if name %}
+        <h2>{{name}}</h2>
+    {% endif %}
+
+
+    <br>
+    <p>Search</p>
+    <form action ="search" method = "POST">
+        <br> Enter tags for photo search: <input type = "text" name = "tags" /></p>
+        <input type="radio" name = "type" value = "myphotos" checked> myphotos <br>
+        <input type="radio" name = "type" value = "allphotos"> allphotos <br>
+
+        <p><input type = "submit" name="submit"/></p>
+    </form>
+
+<a href="{{ url_for('protected') }}">Back to Profile</a>
+
+</body>
+</html>

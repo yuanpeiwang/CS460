@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Fridends</title>
+</head>
+<body>
+   <div>
+    {% if name %}
+		<h3>Hello!&nbsp;{{name}}</h3>
+	{% endif %}
+
+
+	{% if message %}
+		<h3>{{message}}</h3>
+	{% endif %}
+
+    {% if friends %}
+
+		<ul>
+			{% for friend in friends %}
+
+				<h3><a href="{{url_for('album')}}?AID={{album[0]}}">{{album[1]}}</a></h3>
+                <a href="{{url_for('delete')}}?aid={{album[0]}}">Delete album {{album[1]}}</a>
+				<br>
+			{% endfor %}
+		</ul>
+    {% endif %}
+   </div>
+
+    <a href="{{ url_for('protected') }}">Back to Profile</a>
+
+</body>
+</html>

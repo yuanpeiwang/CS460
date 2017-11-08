@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>photo</title>
+
+   <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    -->
+
+</head>
+<body>
+
+<div class="glowing">
+{% if name %}
+	<h2>Hello!&nbsp; {{name}}</h2>
+{% endif %}
+</div>
+
+<div class="msg">
+{% if message %}
+	<h2>{{message}}</h2>
+{% endif %}
+
+
+{% if photos %}
+
+	<ul>
+	    {% for photo in photos %}
+
+	        <li>
+
+	        	<br>
+	        	    <div id="container">
+        	<div class="image-container">
+
+	        	<a href="{{url_for('photo')}}?tag = "></a><br>
+	        	</div>
+	        	</div>
+	        	<div class="ptitle">
+	        	{{photo[2]}}
+	        	<br>
+	        	</div>
+
+
+	        </li>
+
+	    {% endfor %}
+
+
+    </ul>
+    {% endif %}
+
+    {% if photo %}
+    <div class = "photo">
+        <img src='data:image/png;base64, {{photo[0][0]}}' style="width:300px;height:300px;"/><br>
+        <div class = 'ptitle'>
+            {{photo[0][2]}}
+        </div>
+   <nav>
+  <ul>
+      <a href="{{url_for('album')}}?AID={{photo[0][3]}}" class="button"><label>Back to Album</label></a>
+      <a href="{{url_for('delete')}}?pid={{photo[0][1]}}">Delete photo {{photo[0][2]}}</a>
+
+  </ul>
+
+
+
+    {% endif %}
+
+
+        <a href="{{ url_for('protected') }}">Back to Profile</a>
+
+</body>
+</html>
+
+
